@@ -1,8 +1,8 @@
-from dotenv import load_dotenv
 
 import os, json
 
 # Load environment variables from .env file
+from dotenv import load_dotenv
 load_dotenv()
 SECRET_KEY = os.getenv("DEEPSEEK_API_KEY")
 
@@ -40,7 +40,7 @@ embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-
 north_carolina_constitution_loader = PyPDFLoader("./resources/NorthCarolina_Constitution.pdf")
 legal_survival_guide_florida_loader = PyPDFLoader("./resources/Legal Survival Guide - Florida Laws You Should Know.pdf")
 florida_board_of_bar_examiners_loader = PyPDFLoader("./resources/Florida Board of Bar Examiners.pdf")
-texas_constitution_loader = PyPDFLoader("./resources/Florida Board of Bar Examiners.pdf")
+texas_constitution_loader = PyPDFLoader("./resources/Texas Constitution.pdf")
 texas_business_commerce_loader = PyPDFLoader("./resources/Texas_BUSINESSANDCOMMERCECODE.pdf")
 texas_alchoholic_beverage_loader = PyPDFLoader("./resources/Texas_ALCOHOLICBEVERAGECODE.pdf")
 texas_election_code_loader = PyPDFLoader("./resources/Texas_ELECTIONCODE.pdf")

@@ -1,4 +1,4 @@
-# Agent API
+# Legal Agent Server (Legalese)
 
 ### Get Started
 
@@ -27,5 +27,5 @@ $ echo Enter data here > .env
 
 Paste it in app.py
 ```
- SECRET_KEY = os.getenv("OPENAI_API_KEY") > SECRET_KEY = "OPENAI_API_KEY here"
+ SECRET_KEY = os.getenv("DEEPSEEK_API_KEY") > SECRET_KEY = "OPENAI_API_KEY here"
 ```
