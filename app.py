@@ -59,9 +59,7 @@ def chat():
     responseBody = {
       "answer": response,
     }
-
     return make_response(jsonify(responseBody)), 200
-
   except Exception as e:
     return jsonify({"error": str(e)}), 500
 

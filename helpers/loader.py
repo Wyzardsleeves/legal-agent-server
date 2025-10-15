@@ -3,21 +3,21 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+# add a try/except 
 
-# Load documents
-north_carolina_constitution_loader = PyPDFLoader("./resources/NorthCarolina_Constitution.pdf")
-legal_survival_guide_florida_loader = PyPDFLoader("./resources/Legal Survival Guide - Florida Laws You Should Know.pdf")
-florida_board_of_bar_examiners_loader = PyPDFLoader("./resources/Florida Board of Bar Examiners.pdf")
-texas_constitution_loader = PyPDFLoader("./resources/Texas Constitution.pdf")
-texas_business_commerce_loader = PyPDFLoader("./resources/Texas_BUSINESSANDCOMMERCECODE.pdf")
-texas_alchoholic_beverage_loader = PyPDFLoader("./resources/Texas_ALCOHOLICBEVERAGECODE.pdf")
-texas_election_code_loader = PyPDFLoader("./resources/Texas_ELECTIONCODE.pdf")
-texas_estates_code_loader = PyPDFLoader("./resources/Texas_ESTATESCODE.pdf")
-the_smart_guide_mbe_loader = PyPDFLoader("./resources/The-Smart-Guide-to-the-MBE.pdf")
+# Create loaders for each PDF
+north_carolina_constitution_loader = PyPDFLoader("./resources/north_carolina_constitution.pdf")
+legal_survival_guide_florida_loader = PyPDFLoader("./resources/legal_survival_guide_florida.pdf")
+florida_board_of_bar_examiners_loader = PyPDFLoader("./resources/florida_board_of_bar_examiners.pdf")
+texas_constitution_loader = PyPDFLoader("./resources/texas_constitution.pdf")
+texas_business_commerce_loader = PyPDFLoader("./resources/texas_business_commerce.pdf")
+texas_alchoholic_beverage_loader = PyPDFLoader("./resources/texas_alchoholic_beverage.pdf")
+texas_election_code_loader = PyPDFLoader("./resources/texas_election_code.pdf")
+texas_estates_code_loader = PyPDFLoader("./resources/texas_estates_code.pdf")
+the_smart_guide_mbe_loader = PyPDFLoader("./resources/the_smart_guide_mbe.pdf")
 nyc_laws_loader = PyPDFLoader("./resources/nyc_laws.pdf")
 new_york_city_zoning_laws_loader = PyPDFLoader("./resources/new_york_city_zoning_laws.pdf")
-basic_laws_book_2016_loader = PyPDFLoader("./resources/basic-laws-book-2016.pdf")
+basic_laws_book_2016_loader = PyPDFLoader("./resources/basic_laws_book_2016.pdf")
 constitution_loader = PyPDFLoader("./resources/constitution.pdf")
 lobby_guide_texas_loader = PyPDFLoader("./resources/lobby_guide_texas.pdf")
 
@@ -37,6 +37,7 @@ basic_laws_book_2016_pdf_docs = basic_laws_book_2016_loader.load()
 constitution_pdf_docs = constitution_loader.load()
 lobby_guide_texas_pdf_docs = lobby_guide_texas_loader.load()
 
+embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 # Create vectorstores
 north_carolina_constitution_vectorstore = FAISS.from_documents(nc_constitution_pdf_docs, embeddings)
